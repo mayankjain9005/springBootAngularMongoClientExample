@@ -1,0 +1,43 @@
+package com.example.mongoclientExample;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.MongoClient;
+
+@RestController
+@RequestMapping(value="/customers")
+public class MongoClientRest {
+
+	private static DB database = null;
+	
+	private static DB getDbObject(){
+		if(database == null){
+			MongoClient mongoClient = new MongoClient("localhost",27017);
+			database =  mongoClient.getDB("customer");	
+			
+		}
+		return database;
+	}
+	
+	
+	
+	@PostMapping(value="/add",produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity add(@RequestBody String entity){
+		DB database =getDbObject();
+		BasicDBObject basicDBObject = new BasicDBObject();
+		
+		
+		return new ResponseEntity<>("saved successfully", HttpStatus.OK);
+		
+		
+	}
+	
+	
+}

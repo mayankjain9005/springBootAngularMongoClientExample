@@ -1,0 +1,17 @@
+package com.example.mongoclientExample;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MongoClientRest {
+
+	
+	@GetMapping("/customers")
+	public String costomers(){
+		
+		
+	}
+	
+	
+}

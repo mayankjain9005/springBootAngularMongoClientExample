@@ -1,0 +1,8 @@
+package com.example.mongoclientExample;
+
+public class Customer {
+	private String name;
+	private int phone;
+	private String address;
+
+}

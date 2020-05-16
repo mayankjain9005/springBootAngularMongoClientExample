@@ -1,0 +1,16 @@
+package com.example.mongoclientExample;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MongoClientRest {
+
+	@GetMapping(value="/customers",produces=MediaType.APPLICATION_JSON_VALUE)
+	public String costomers(){
+		
+		return null;
+	}
+	
+	
+}
